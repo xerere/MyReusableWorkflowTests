@@ -1,0 +1,10 @@
+name: Call a reusable workflow
+
+on:
+   workflow_call:
+
+jobs:
+  call-workflow-2-in-local-repo:
+    uses: ./.github/workflows/workflow-2.yml
+    with:
+      username: mona
