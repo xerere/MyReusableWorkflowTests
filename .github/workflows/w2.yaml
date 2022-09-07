@@ -1,0 +1,15 @@
+name: w2
+
+on:
+  workflow_run:
+    workflows: 
+      - w1
+    types:
+      - completed
+      
+jobs:
+  on-success:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - run: echo ${{ github.event.workflow_run.outputs.o1}}
