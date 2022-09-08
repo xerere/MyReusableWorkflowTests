@@ -14,7 +14,7 @@ jobs:
       myoutput: ${{ steps.step1.outputs.myoutput }}
     steps:
       - 
-        run: echo ${{github.event.inputs.chart_version}}
+        run: echo ${{github.event.inputs.myinput}}
       - 
         id: step1
         run: echo "::set-output name=myoutput::${{github.event.inputs.myinput}}"
