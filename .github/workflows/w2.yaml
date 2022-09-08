@@ -6,6 +6,7 @@ on:
       - w1
     types:
       - completed
+    
       
 jobs:
   on-success:

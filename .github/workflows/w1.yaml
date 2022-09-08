@@ -6,7 +6,10 @@ on:
       myinput:
         description: 'my input value'
         required: true
-         
+        default: 'myinput default value'
+  push:
+    branches: [ $default-branch ]
+
 jobs:
   prepare_output:
     runs-on: ubuntu-latest
