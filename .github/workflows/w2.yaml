@@ -10,6 +10,9 @@ on:
 jobs:
   on-success:
     runs-on: ubuntu-latest
+    needs: github.event.workflow_run.jobs.outputs
+
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
-      - run: echo ${{ github.event.workflow_run.outputs}}
+      - run: echo ${{ github.event.workflow_run.jobs.outputs.myoutput}}
+
