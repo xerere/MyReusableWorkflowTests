@@ -1,0 +1,20 @@
+name: w1
+
+on:
+  workflow_dispatch:
+    inputs:
+      myinput:
+        description: 'my input value'
+        required: true
+         
+jobs:
+  prepare_output:
+    runs-on: ubuntu-latest
+    outputs:
+      myoutput: ${{ steps.step1.outputs.myoutput }}
+    steps:
+      - 
+        run: echo ${{github.event.inputs.chart_version}}
+      - 
+        id: step1
+        run: echo "::set-output name=myoutput::${{github.event.inputs.myinput}}"
