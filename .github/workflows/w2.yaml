@@ -13,5 +13,5 @@ jobs:
     
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
-      - run: echo ${{ github.event.workflow_run.jobs.outputs.myoutput}}
+      - run: echo ${{ github.event.workflow_run.jobs.prepare_output.outputs.myoutput}}
 
