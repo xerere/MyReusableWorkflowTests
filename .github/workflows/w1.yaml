@@ -11,6 +11,10 @@ on:
     branches: [ $default-branch ]
 
 jobs:
+  call-reusable:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/workflows/w3.yaml
   prepare_output:
     runs-on: ubuntu-latest
     outputs:
