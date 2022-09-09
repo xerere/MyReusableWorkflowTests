@@ -7,8 +7,6 @@ on:
         description: 'my input value'
         required: true
         default: 'myinput default value'
-  push:
-    branches: [ $default-branch ]
 
 jobs:
   call-reusable:
