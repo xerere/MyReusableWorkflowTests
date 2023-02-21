@@ -1,2 +1,2 @@
 # MyReusableWorkflowTests
-open pr, approve and merge
+open pr, approve and merge again
