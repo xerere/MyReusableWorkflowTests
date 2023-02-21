@@ -8,10 +8,13 @@ on:
         type: string
 
 jobs:
+  
   reusable_workflow_job:
     runs-on: ubuntu-latest
     environment: production
     steps:
+      - uses: hmarr/debug-action@v2
       - run: echo Hello ${{ inputs.username }}
       - run: echo github.event_name = ${{ github.event_name }} 
       - run: echo github.event.pull_request.merged = ${{ github.event.pull_request.merged }}
+      
