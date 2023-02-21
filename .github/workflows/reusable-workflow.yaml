@@ -13,4 +13,5 @@ jobs:
     environment: production
     steps:
       - run: echo Hello ${{ inputs.username }}
-      - run: echo github.event_name != 'release' && github.event.pull_request.merged == true => ${{ github.event_name != 'release' && github.event.pull_request.merged }}
+      - run: echo github.event_name = ${{ github.event_name }} 
+      - run: echo github.event.pull_request.merged = ${{ github.event.pull_request.merged }}
