@@ -3,12 +3,11 @@ name: test merge
 on:
    workflow_dispatch:
 
-on:
-  pull_request:
+   pull_request:
     types: [ opened, synchronize, closed ]
     branches:
       - "main"    
-  release:
+   release:
     types: [ published ]
     branches:
       - "main"
