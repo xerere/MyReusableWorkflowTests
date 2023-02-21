@@ -1,0 +1,20 @@
+name: test merge
+
+on:
+   workflow_dispatch:
+
+on:
+  pull_request:
+    types: [ opened, synchronize, closed ]
+    branches:
+      - "main"    
+  release:
+    types: [ published ]
+    branches:
+      - "main"
+
+jobs:
+  call-workflow-2-in-local-repo:
+    uses: ./.github/workflows/reusable-workflow.yaml
+    with:
+      username: mona
