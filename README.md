@@ -1,2 +1,2 @@
 # MyReusableWorkflowTests
-bbb
+create PR and close it (no merge)
