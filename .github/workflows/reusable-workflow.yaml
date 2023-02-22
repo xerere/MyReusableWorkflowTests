@@ -6,21 +6,20 @@ on:
       username:
         required: true
         type: string
-      namespace:
-        required: false
-        type: string
-        default: ""
       project_name:
         description: Project valid identifier name (defaults to github.event.repository.name )
         required: false
         type: string
         default: ${{ github.event.repository.name }}
+      namespace:
+        required: false
+        type: string
 
 jobs:
   
   reusable_workflow_job:
     env:
-        NAMESPACE: ${{ inputs.namespace == "" && format('cns-{0}', inputs.project_name) || inputs.namespace }}
+        NAMESPACE: ${{ inputs.namespace || format('cns-{0}', inputs.project_name) }}
     runs-on: ubuntu-latest
     environment: production
     steps:
