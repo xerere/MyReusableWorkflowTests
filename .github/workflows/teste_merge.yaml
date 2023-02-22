@@ -2,15 +2,20 @@ name: test merge
 
 on:
    workflow_dispatch:
-
-   pull_request:
-    types: [ opened, synchronize, closed ]
-    branches:
+   
+   push:
+     branches:
       - "main"    
+      
+   pull_request:
+     types: [ opened, synchronize, closed ]
+     branches:
+       - "main"    
+      
    release:
-    types: [ published ]
-    branches:
-      - "main"
+     types: [ published ]
+     branches:
+       - "main"
 
 jobs:
   call-workflow-2-in-local-repo:
