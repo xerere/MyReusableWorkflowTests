@@ -6,23 +6,30 @@ on:
       username:
         required: true
         type: string
-      myvar:
+      namespace:
         required: false
         type: string
         default: ""
+      project_name:
+        description: Project valid identifier name (defaults to github.event.repository.name )
+        required: false
+        type: string
+        default: ${{ github.event.repository.name }}
 
 jobs:
   
   reusable_workflow_job:
+    env:
+        NAMESPACE: ${{ inputs.namespace == "" && format('cns-{0}', inputs.project_name) || inputs.namespace }}
     runs-on: ubuntu-latest
     environment: production
     steps:
+      
       - uses: hmarr/debug-action@v2
       - run: |
           echo "Hello ${{ inputs.username }}"
           echo "github.event_name ===> ${{ github.event_name }} "
           echo "github.event.pull_request.merged ===> ${{ github.event.pull_request.merged }}"
           echo "github.ref == format('refs/heads/{0}', github.event.repository.default_branch) && github.event_name == 'push' ===> ${{ github.ref == format('refs/heads/{0}', github.event.repository.default_branch) && github.event_name == 'push' }}"
-      - if: ${{ inputs.myvar }}
-        run: echo inputs.myvar = ${{ inputs.myvar }}
+      - run: echo env.NAMESPACE = ${{ env.NAMESPACE }}
 
